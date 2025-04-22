@@ -1,24 +1,17 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme   {
-
+@theme  {
   --font-display: "Satoshi", "sans-serif";
 
-  --color-primary-neutral-50: #ffffff;
-  --color-primary-neutral-100: #f5f5f5;
-  --color-primary-neutral-200: #e5e5e5;
-  --color-primary-neutral-300: #d4d4d4;
-  --color-primary-neutral-400: #a3a3a3;
-  --color-primary-neutral-500: #737373;
-  --color-primary-neutral-600: #525252;
-  --color-primary-neutral-700: #404040;
-  --color-primary-neutral-800: #262626;
-  --color-primary-neutral-900: #171717;
+  --color-primary-neutral-50: #FEFEFE;
+  --color-primary-neutral-100: #fbfbfb;
+  --color-primary-neutral-200: #f9f9f9;
+  --color-primary-neutral-300: #f7f7f7;
+  --color-primary-neutral-400: #f5f5f5;
+  --color-primary-neutral-500: #f3f3f3;
+  --color-primary-neutral-600: #dddddd;
+  --color-primary-neutral-700: #adadad;
+  --color-primary-neutral-800: #868686;
+  --color-primary-neutral-900: #666666;
 
   /* Primary Colors - Warm */
   --color-primary-warm-50: #fafaf5;
@@ -33,16 +26,16 @@
   --color-primary-warm-900: #47331a;
 
   /* Primary Colors - Cool */
-  --color-primary-cool-50: #f5f7fa;
-  --color-primary-cool-100: #e0e8f5;
-  --color-primary-cool-200: #c2d1ed;
-  --color-primary-cool-300: #99b3e0;
-  --color-primary-cool-400: #6b8fd1;
-  --color-primary-cool-500: #4267c4;
-  --color-primary-cool-600: #3c56a6;
-  --color-primary-cool-700: #334785;
-  --color-primary-cool-800: #293566;
-  --color-primary-cool-900: #1a2347;
+  --color-primary-cool-50: #f8f7fe;
+  --color-primary-cool-100: #e9e7fb;
+  --color-primary-cool-200: #dedcf9;
+  --color-primary-cool-300: #cfcbf6;
+  --color-primary-cool-400: #c6c1f5;
+  --color-primary-cool-500: #b8b2f2;
+  --color-primary-cool-600: #a7a2dc;
+  --color-primary-cool-700: #837eac;
+  --color-primary-cool-800: #656285;
+  --color-primary-cool-900: #4d4b66;
 
   /* Secondary Colors - Orange */
   --color-secondary-orange-50: #fff9f5;
@@ -69,28 +62,28 @@
   --color-secondary-blue-900: #1a2366;
 
   /* Neutral Colors - Black */
-  --color-neutral-black-50: #f7f7f7;
-  --color-neutral-black-100: #e3e3e3;
-  --color-neutral-black-200: #c8c8c8;
-  --color-neutral-black-300: #a4a4a4;
-  --color-neutral-black-400: #808080;
-  --color-neutral-black-500: #666666;
-  --color-neutral-black-600: #515151;
-  --color-neutral-black-700: #434343;
-  --color-neutral-black-800: #383838;
-  --color-neutral-black-900: #121212;
+  --color-neutral-black-50: #eaebec;
+  --color-neutral-black-100: #bfc1c3;
+  --color-neutral-black-200: #a0a3a7;
+  --color-neutral-black-300: #75797e;
+  --color-neutral-black-400: #5a5f65;
+  --color-neutral-black-500: #31373f;
+  --color-neutral-black-600: #2d3239;
+  --color-neutral-black-700: #23272d;
+  --color-neutral-black-800: #1b1e23;
+  --color-neutral-black-900: #15171a;
 
   /* Neutral Colors - Dark Blue */
-  --color-neutral-dark-blue-50: #f5f7fa;
-  --color-neutral-dark-blue-100: #e0e8f5;
-  --color-neutral-dark-blue-200: #c2d1ed;
-  --color-neutral-dark-blue-300: #99b3e0;
-  --color-neutral-dark-blue-400: #6b8fd1;
-  --color-neutral-dark-blue-500: #4267c4;
-  --color-neutral-dark-blue-600: #3c56a6;
-  --color-neutral-dark-blue-700: #334785;
-  --color-neutral-dark-blue-800: #293566;
-  --color-neutral-dark-blue-900: #1a2347;
+  --color-neutral-dark-blue-50: #e8e8ea;
+  --color-neutral-dark-blue-100: #b7b8bc;
+  --color-neutral-dark-blue-200: #95959c;
+  --color-neutral-dark-blue-300: #64656f;
+  --color-neutral-dark-blue-400: #464753;
+  --color-neutral-dark-blue-500: #181928;
+  --color-neutral-dark-blue-600: #161724;
+  --color-neutral-dark-blue-700: #11121C;
+  --color-neutral-dark-blue-800: #0D0E16;
+  --color-neutral-dark-blue-900: #0A0B11;
 
   /* Functional Colors - Success */
   --color-functional-success-50: #f5faf7;
@@ -130,7 +123,6 @@
 
 
   /* spacing Variables  */
-
   --spacing-none: 0;
   --spacing-xs: 0.25rem;    /* 4px */
   --spacing-sm: 0.5rem;     /* 8px */
@@ -143,25 +135,26 @@
   --spacing-5xl: 6rem;      /* 96px */
   --spacing-6xl: 8rem;      /* 128px */
 
+
   --rounded-sm: 0.25rem;
   --rounded-md: 0.5rem;
-  --rounded-lg: 1rem;
-  --rounded-xl: 1.5rem;
-  --rounded-2xl: 2rem;
-  --rounded-3l: 2.5rem;
+  --rounded-lg: 1.5rem;
+  --rounded-xl: 2rem;
+  --rounded-2xl: 2.5rem;
+  --rounded-3xl: 3rem;
+  --rounded-6xl: 6.25rem;
 
-
-  --text--display: 4.75rem;    /* 76px */
-  --text--h1: 3.812rem;        /* 61px */
-  --text--h2: 3.062rem;
-  --text--h3: 2.438rem;        /* 39px */
-  --text--h4: 1.938rem;        /* 31px */
-  --text--h5: 1.562rem;        /* 25px */
-  --text--subtitle: 1.25rem;   /* 20px */
-  --text--body1: 1rem;         /* 16px */
-  --text--body2: 0.812rem;     /* 13px */
-  --text--caption1: 0.625rem;  /* 10px */
-  --text--caption2: 0.5rem;    /* 8px */
+  --text-display: 4.75rem;    /* 76px */
+  --text-h1: 3.812rem;        /* 61px */
+  --text-h2: 3.062rem;
+  --text-h3: 2.438rem;        /* 39px */
+  --text-h4: 1.938rem;        /* 31px */
+  --text-h5: 1.562rem;        /* 25px */
+  --text-subtitle: 1.25rem;   /* 20px */
+  --text-body1: 1rem;         /* 16px */
+  --text-body2: 0.812rem;     /* 13px */
+  --text-caption1: 0.625rem;  /* 10px */
+  --text-caption2: 0.5rem;    /* 8px */
 
   /* Typography - Line Heights */
   --leading-display: 5.75rem;  /* 92px */
@@ -177,15 +170,5 @@
   --leading-caption2: 0.625rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
