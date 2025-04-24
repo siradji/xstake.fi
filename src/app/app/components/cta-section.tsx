@@ -1,12 +1,13 @@
 import { Button } from "@/app/components/ui/buttons";
 import Image from "next/image";
 import stackedSm from "@/assets/images/stacked-sm.svg";
+import stackedIpad from "@/assets/images/stacked-ipad.svg";
 
 export const CtaSection: React.FC = () => {
     return (
         <div className="relative z-50 w-full bg-[url('/assets/images/cta-vector-2.svg')] bg-no-repeat bg-cover">
-            <div className="lg:px-xl px-md -mb-2xl relative z-50">
-                <div className="bg-neutral-dark-blue-500 shadow-[0px_4px_10.7px_0px_#0000001A] rounded-xl lg:p-4xl px-md pt-xl lg:bg-[url('@/assets/images/xstake-stacked.svg')] bg-no-repeat bg-right top-3.5 flex item-center justify-center lg:block! flex-col text-center lg:text-left">
+            <div className="lg:px-28 md:px-16 px-md -mb-2xl relative z-50">
+                <div className="bg-neutral-dark-blue-500 shadow-[0px_4px_10.7px_0px_#0000001A] rounded-4xl lg:p-4xl px-md pt-xl lg:bg-[url('@/assets/images/xstake-stacked.svg')] bg-no-repeat bg-right top-3.5 flex item-center justify-center lg:block! flex-col text-center lg:text-left">
                     
                     <h1 className="lg:text-6xl text-4xl mt-xl text-primary-neutral-50 leading-[120%]">
                         Ready to Unlock the Full<br /> Potential of Your Bitcoin?
@@ -36,9 +37,17 @@ export const CtaSection: React.FC = () => {
                         </Button>
                     </div>
 
-                    <div className="relative mt-6 lg:hidden w-full h-64">
+                    <div className="relative mt-6 lg:hidden md:hidden w-full h-64">
                         <Image
                             src={stackedSm}
+                            alt="XStake.FI"
+                            fill
+                            className=""
+                        /> 
+                    </div>
+                    <div className="relative mt-6 md:block lg:hidden hidden w-full h-64">
+                        <Image
+                            src={stackedIpad}
                             alt="XStake.FI"
                             fill
                             className=""
