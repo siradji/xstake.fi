@@ -22,7 +22,7 @@ export default function HowItWorks() {
       {/* Steps with connector line */}
       <div className="relative max-w-7xl mx-auto">
         {/* Horizontal line on desktop */}
-        <div className="hidden lg:block absolute inset-x-0 top-1/2 h-px bg-gray-200"></div>
+        <div className="hidden lg:block absolute inset-x-0 top-1/2 h-px bg-primary-neutral-600" />
 
         <div className="lg:flex lg:flex-row flex-col gap-8">
           {/* Card 1 */}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/buttons";
+import { Stepper } from "./stepper";
 
 // Placeholder icons - replace with your own SVGs or Images
 const bitcoinIcon = "/icons/bitcoin.svg";
@@ -16,27 +17,34 @@ function Card({ children, className }: any) {
 
 function StepTabs({ steps, current, onChange }: any) {
   return (
-    <div className="hidden md:block w-full relative lg:px-28 md:px-16 px-md md:mt-9">
-      <div className="absolute inset-0 top-[32px] lg:left-[85px] left-[100px] flex items-center">
+    <div className="hidden md:block w-full relative lg:pl-2 pr-8 py-3 md:px-16 px-md md:mt-9">
+      {/* <div className="absolute inset-0 top-[32px] lg:left-[85px] left-[100px] flex items-center">
         <div className="lg:w-[450px] md:w-[90%] h-px bg-gray-300"></div>
-      </div>
-      <div className="relative flex justify-between">
-        {steps.map((step: any) => (
-          <button
-            key={step.value}
-            onClick={() => onChange(step.value)}
-            className="flex flex-col items-center z-10 focus:outline-none"
-          >
-            <span className={`text-xl mb-2 transition-colors text-neutral-black-600`}>{step.label}</span>
+      </div> */}
+      <div className="absolute inset-x-0 top-1/2 h-px bg-primary-neutral-600" />
+      <div className="relative flex justify-between w-full">
+        {steps.map((step: any, index: number) => (
+          <div className="w-full">
+            <button
+              key={step.value}
+              onClick={() => onChange(step.value)}
+              className="flex flex-col items-center z-10 focus:outline-none"
+            >
+              <span className={`text-xl mb-2 transition-colors text-neutral-black-600`}>{step.label}</span>
+              
+            </button>
+            <div className="flex items-center">
             <Image
                 width={30}
                 height={30}
                 src={require('@/assets/images/Pin.svg')}
                 alt="Pin"
                 priority
-                className=""
+                className={index == 2 ? "ml-auto" : ""}
             />
-          </button>
+            <div className="h-px w-full bg-primary-neutral-600" />
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -122,37 +130,7 @@ export default function Masthead() {
           {/* Decorative 3D shape */}
           
 
-          {/* Tabs Step Indicator */}
-          <StepTabs steps={steps} current={tab} onChange={setTab} />
-
-          {/* Tab Content with pointer */}
-          <div className="space-y-8 mt-8 lg:mt-16">
-            {steps.map((step) => (
-              <div
-                key={step.value}
-                className={`${tab === step.value ? "block" : "hidden"} relative mx-auto lg:mx-0`}
-              >
-                
-                <Card className="w-60 h-52">
-                  <div className="absolute -top-16 rounded-xl left-0 w-18 h-20 bg-white flex items-center justify-center">
-                  <div className="rounded-full w-16 h-16 border border-primary-neutral-600 flex justify-center items-center">
-                    <Image
-                        width={33}
-                        height={33}
-                        src={require('@/assets/images/tab-btc.svg')}
-                        alt="BTC"
-                        priority
-                        className=""
-                    />
-                  </div>
-                  </div>
-                  <div className="pt-6 pl-6 pr-6 pb-8">
-                    <p className="text-gray-600">{step.text}</p>
-                  </div>
-                </Card>
-              </div>
-            ))}
-          </div>
+          <Stepper />
         </div>
       </div>
     
