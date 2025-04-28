@@ -1,0 +1,48 @@
+{/* Tabs Step Indicator */}
+          <StepTabs steps={steps} current={tab} onChange={setTab} />
+
+          {/* Tab Content with pointer */}
+          <div className="space-y-8 mt-8 lg:mt-16">
+            {steps.map((step) => (
+              <div
+                key={step.value}
+                className={`${tab === step.value ? "block" : "hidden"} relative mx-auto lg:mx-0`}
+              >
+                
+                <Card className="w-60 h-52">
+                  <div className="absolute -top-16 rounded-xl left-0 w-18 h-20 bg-white flex items-center justify-center">
+                  <div className="rounded-full w-16 h-16 border border-primary-neutral-600 flex justify-center items-center">
+                    <Image
+                        width={33}
+                        height={33}
+                        src={require('@/assets/images/tab-btc.svg')}
+                        alt="BTC"
+                        priority
+                        className=""
+                    />
+                  </div>
+                  </div>
+                  <div className="pt-6 pl-6 pr-6 pb-8">
+                    <p className="text-gray-600">{step.text}</p>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+
+
+<div
+          className={``}
+        >
+            <div className="rounded-2xl"></div>
+            <div className={` rounded-xl w-18 h-20 bg-white flex items-center justify-center` }>
+            <div className="rounded-full w-16 h-16 border border-primary-neutral-600 flex justify-center items-center">
+            {steps[active].illustration}
+                  </div>
+                  </div>
+          <div className="w-[239px] bg-white rounded-xl shadow-lg p-3">
+            <Image src={require('@/assets/images/Graph.svg')} alt="Graph" width={215} height={61} />
+            <p className="text-sm text-gray-600 mt-6">{steps[active].description}</p>
+          </div>
+        </div>

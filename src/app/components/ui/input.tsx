@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Text Input Component
-const TextInput = ({ label, placeholder, helperText, state = 'default' }: any) => {
+export const TextInput = ({ label, placeholder, helperText, state = 'default' }: any) => {
     const [value, setValue] = useState('');
     const [focused, setFocused] = useState(false);
 
@@ -47,7 +47,7 @@ const TextInput = ({ label, placeholder, helperText, state = 'default' }: any) =
 };
 
 // Select Input Component
-const SelectInput = ({ label, helperText, state = 'default' }) => {
+export const SelectInput = ({ label, helperText, state = 'default' }) => {
     const [value, setValue] = useState('BTC');
     const [focused, setFocused] = useState(false);
 
