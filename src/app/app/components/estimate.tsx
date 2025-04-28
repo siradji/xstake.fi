@@ -37,13 +37,13 @@ export const StakeCalculator: React.FC = () => {
             />
             
         </div>
-        <h1 className="sm:text-7xl text-5xl leading-[120%] text-center z-20 relative mb-2xl">Estimate Your Bitcoin Staking Yield</h1>
+        <h1 className="md:text-7xl font-medium text-5xl leading-[120%] text-center z-20 relative mb-2xl">Estimate Your Bitcoin Staking Yield</h1>
         
         <div className="w-fit mx-auto bg-linear-to-b p-6 from-white to-[#E1DCEE] rounded-2xl shadow-lg overflow-hidden relative z-20">
         {/* Top Inputs */}
         <div className="flex flex-col lg:flex-row md:flex-row gap-4 bg-white lg:py-6 lg:px-8 md:py-6 md:px-8 border border-primary-neutral-600 rounded-2xl">
             {/* BTC Input */}
-            <div className="flex-1 px-6 md:px-0 lg:px-0 py-6 md:px-0 lg:px-0">
+            <div className="flex-1 px-6 md:px-0 lg:px-0 pb-6 md:pt-0 pt-6 md:px-0 lg:px-0">
             <label htmlFor="btc" className="block text-gray-500 text-sm mb-1">
                 Bitcoin you’d like to stake
             </label>
@@ -60,7 +60,7 @@ export const StakeCalculator: React.FC = () => {
             </div>
 
             {/* Yield Dropdown */}
-            <div className="relative flex-1 px-6 md:px-0 lg:px-0 py-6 md:py-0 lg:py-0 border-t border-primary-neutral-600">
+            <div className="relative flex-1 px-6 md:px-0 lg:px-0 py-6 md:py-0 lg:py-0 md:border-0 border-t border-primary-neutral-600">
             <label className="block text-gray-500 text-sm mb-1">
                 Select a yield rate
             </label>

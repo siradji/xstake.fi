@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/buttons";
 import { Stepper } from "./stepper";
+import { StepperSm } from "./stepper-sm";
 
 // Placeholder icons - replace with your own SVGs or Images
 const bitcoinIcon = "/icons/bitcoin.svg";
@@ -11,7 +12,7 @@ const knotImage = "/images/knot.png"; // Decorative 3D shape
 
 function Card({ children, className }: any) {
   return (
-    <div className={`bg-white rounded-2xl overflow-hidden ${className}`}>{children}</div>
+    <div className={`bg-white rounded-2xl md:rounded-4xl overflow-hidden ${className}`}>{children}</div>
   );
 }
 
@@ -78,15 +79,34 @@ export default function Masthead() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-[#f5f4ff] to-[#fef6f3] overflow-hidden py-12 md:py-20">
+    <section className="relative  overflow-hidden pb-5xl pt-12 md:py-20">
+       <div className="absolute hidden lg:block inset-0 z-10 top-[25%] left-[75%]">
+          <Image
+              width={756}
+              height={610}
+              src={require('@/assets/images/masthead-right-grad.svg')}
+              alt="Matallic Stone"
+              priority
+          />
+        </div>
+        <div className="absolute hidden lg:block inset-0 z-10 top-[10%] -left-[30%]">
+          <Image
+              width={756}
+              height={610}
+              src={require('@/assets/images/masthead-right-grad.svg')}
+              alt="Matallic Stone"
+              priority
+              className="w-1/2"
+          />
+        </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row px-4 md:px-8 ">
         {/* Left Column */}
-        <div className="w-full lg:w-1/2 text-left">
+        <div className="w-full lg:w-1/2 text-left relative z-20">
             
           <h1 className="text-4xl leading-[120%] md:text-6xl lg:text-7xl text-neutral-black-600 mb-4">
             Stake Your Bitcoin,
             <p className="flex items-center lg:justify-center">
-            <p className="rounded-2xl text-2xl inline-flex text-neutral-black-300 flex bg-linear-to-br from-white to-[#E1DCEE] py-4 px-6 w">
+            <p className="rounded-2xl text-xl md:text-2xl inline-flex text-neutral-black-300 flex bg-linear-to-br from-white to-[#E1DCEE] md:py-4 md:px-6 py-2.5 px-2">
                 +5k users
                 <br />
                 <span className="ml-2">
@@ -126,7 +146,7 @@ export default function Masthead() {
         </div>
 
         {/* Right Column */}
-        <div className="w-full lg:w-1/2 relative">
+        <div className="w-full hidden md:block lg:w-1/2 relative lg:mb-0 md:mb-[140px]">
           {/* Decorative 3D shape */}
           
 
@@ -134,58 +154,55 @@ export default function Masthead() {
         </div>
       </div>
     
-      <div className="flex flex-row gap-4 mb-12 items-end">
-            <Card className="p-6 w-[408px] flex items-start justify-center flex-col h-64 bg-gradient-to-br from-white to-[#F0DED7]">
-              <p className="text-7xl text-neutral-black-600 mb-2">8%</p>
-              <p className="text-neutral-black-300 text-2xl">Get yield on your BTC with competitive rates</p>
+      <div className="flex flex-row mt-8 md:mt-0 px-4 md:px-0 gap-4 mb-12 items-end relative z-10">
+            <Card className="flex-1 px-3 py-3.5 w-[163px] h-[104px] md:p-6 lg:w-[408px] md:w-[280px] lg:h-[265px] flex items-start justify-center flex-col md:h-[182px] bg-gradient-to-br from-white to-[#F0DED7]">
+              <p className="lg:text-7xl text-3xl md:text-5xl text-neutral-black-600 mb-2">8%</p>
+              <p className="text-neutral-black-300 text-sm md:text-base lg:text-2xl">Get yield on your BTC with competitive rates</p>
             </Card>
-            <Card className="px-6 w-[408px] flex items-start justify-center flex-col pt-6 bg-gradient-to-br from-white to-[#E1DCEE]">
-              <p className="text-7xl text-neutral-black-600 mb-2">2x Points</p>
-              <p className="text-neutral-black-300 text-2xl">Earn xPoints every time you mint xBTC</p>
+            <Card className="pt-3.5 pb-3.5 md:pb-0! w-[163px] h-[104px] md:p-6 flex-1 px-3 md:w-[280px] lg:w-[408px] lg:h-[376px] flex items-start justify-center flex-col md:pt-6! bg-gradient-to-br from-white to-[#E1DCEE] md:h-[253px]">
+              <p className="lg:text-7xl text-3xl md:text-5xl text-neutral-black-600 mb-2">2x Points</p>
+              <p className="text-neutral-black-300 text-sm md:text-base lg:text-2xl">Earn xPoints every time you mint xBTC</p>
               <Image
                 width={312}
                 height={189}
                 src={require('@/assets/images/card-image.svg')}
                 alt="Decor"
                 priority
-                className=""
+                className="lg:w-fit lg:block hidden w-[214px]"
+            />
+            <Image
+                width={214}
+                height={129}
+                src={require('@/assets/images/card-image-md.svg')}
+                alt="Decor"
+                priority
+                className="lg:w-fit hidden md:block ml-auto lg:hidden"
             />
             </Card>
           </div>
 
-      {/* Mobile & Tablet Tab Stack */}
-      <div className="md:hidden px-4 md:px-8 pb-12">
-        {steps.map((step) => (
-          <div key={step.value} className="mb-6">
-            <Card>
-              <div className="flex items-start p-6">
-                <div className="w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center mr-4">
-                  <img src={step.icon} alt="" className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{step.label}</h3>
-                  <p className="text-gray-600 text-sm">{step.text}</p>
-                </div>
-              </div>
-            </Card>
-          </div>
-        ))}
-      </div>
+          <div className="w-full md:hidden block lg:w-1/2 relative lg:mb-0 md:mb-[140px]">
+          {/* Decorative 3D shape */}
+          
+
+          <StepperSm />
+        </div>
+      
       <Image
         width={436}
         height={436}
         src={require('@/assets/images/massthead-knot.svg')}
         alt="Decor"
         priority
-        className="hidden lg:block absolute right-0 lg:top-1/2 w-64 opacity-80"
+        className="hidden lg:block absolute z-20 right-0 lg:top-1/2 w-64 opacity-80"
     />
     <Image
-        width={300}
-        height={300}
+        width={150}
+        height={150}
         src={require('@/assets/images/knot-md.svg')}
         alt="Decor"
         priority
-        className="hidden lg:hidden md:block absolute right-0 md:top-[30%] w-64 opacity-80"
+        className="hidden lg:hidden md:block absolute right-0 md:top-[45%] w-[150px] opacity-80"
     />
     </section>
   );

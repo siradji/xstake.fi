@@ -29,3 +29,20 @@
               </div>
             ))}
           </div>
+
+
+
+<div
+          className={``}
+        >
+            <div className="rounded-2xl"></div>
+            <div className={` rounded-xl w-18 h-20 bg-white flex items-center justify-center` }>
+            <div className="rounded-full w-16 h-16 border border-primary-neutral-600 flex justify-center items-center">
+            {steps[active].illustration}
+                  </div>
+                  </div>
+          <div className="w-[239px] bg-white rounded-xl shadow-lg p-3">
+            <Image src={require('@/assets/images/Graph.svg')} alt="Graph" width={215} height={61} />
+            <p className="text-sm text-gray-600 mt-6">{steps[active].description}</p>
+          </div>
+        </div>

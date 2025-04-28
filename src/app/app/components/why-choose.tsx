@@ -33,9 +33,9 @@ const features = [
 
 export const WhyChoose: React.FC = () => {
   return (
-    <section className="relative bg-[#0F1227] overflow-hidden py-24 mb-6xl">
+    <section className="relative  rounded-b-2xl! rounded-t-none! bg-[#0F1227] overflow-hidden py-3xl md:py-24 mb-6xl">
       {/* Floating chain image spanning sections */}
-      <div className="absolute -bottom-40 z-40 w-[543px] h-[543px] pointer-events-none">
+      <div className="absolute hidden lg:block -bottom-40 z-40 w-[543px] h-[543px] pointer-events-none">
         <Image
           src={chainImg}
           alt="decorative chain"
@@ -45,18 +45,20 @@ export const WhyChoose: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto lg:px-28 md:px-16 px-md flex flex-col lg:flex-row items-start gap-12">
+     
+
+      <div className="w-full relative z-50 containe lg:px-28 md:px-16 px-md flex justify-between flex-col lg:flex-row items-start gap-12">
         {/* Heading */}
-        <h2 className="text-white font-semibold leading-tight text-4xl lg:text-5xl lg:w-1/3">
-          Why Choose<br /> Us for Bitcoin<br /> Staking?
+        <h2 className="text-white font-semibold leading-tight text-4xl md:text-6xl lg:text-7xl lg:w-1/3">
+          Why Choose Us for Bitcoin Staking?
         </h2>
 
         {/* Feature list */}
-        <div className="flex-1 grid gap-6">
+        <div className="flex-1 grid gap-6 w-full lg:w-full">
           {features.map(({ icon, title, description }) => (
             <div
               key={title}
-              className="flex items-center p-8 border border-[#F0DED7] rounded-4xl bg-opacity-30 backdrop-blur-sm"
+              className="flex items-center lg:w-[656px] w-full md:px-4 p-6 lg:p-8 border border-[#F0DED7] rounded-4xl bg-opacity-30 backdrop-blur-sm"
             >
               <div className="flex-shrink-0 w-5xl h-5xl bg-[url(@/assets/images/icon-grad-lg.svg)] bg-right rounded-full bg-no-repeat bg-transparent flex items-center justify-center mr-4 border border-primary-neutral-600">
                 <Image
