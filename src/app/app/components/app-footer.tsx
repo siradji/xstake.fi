@@ -27,8 +27,8 @@ export const AppFooter = () => {
                     </ul>
                 </div>
             </div>
-            <div className="">
-                <div className="ml-auto text-neutral-black-300 text-sm">Community</div>
+            <div>
+                <div className="text-right hidden md:block text-neutral-black-300 text-sm">Community</div>
                 <div className="flex gap-4 mt-2">
                     <div className="w-[56px] h-[56px] bg-[url(@/assets/images/icon-grad.svg)] rounded-full bg-no-repeat flex justify-center items-center bg-right border border-primary-neutral-600">
                     <Image

@@ -13,7 +13,7 @@ export const AppHeader = () => {
     };
 
     return (
-        <header className="sticky top-0 z-100 py-[calc(--spacing(8)+2px)] flex items-center justify-between bg-white md:px-xl  shadow-sm">
+        <header className="sticky top-0 z-100 py-[calc(--spacing(8)+2px)] flex items-center justify-between bg-white lg:px-28 md:px-16 px-md  shadow-sm">
             <div className="flex items-center">
                 <Link href="/">
                     <Image

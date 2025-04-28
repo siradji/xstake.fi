@@ -39,40 +39,47 @@ export const StakeCalculator: React.FC = () => {
         </div>
         <h1 className="md:text-7xl font-medium text-5xl leading-[120%] text-center z-20 relative mb-2xl">Estimate Your Bitcoin Staking Yield</h1>
         
-        <div className="w-fit mx-auto bg-linear-to-b p-6 from-white to-[#E1DCEE] rounded-2xl shadow-lg overflow-hidden relative z-20">
+        <div className="w-fit mx-auto bg-linear-to-b p-6 from-white to-[#E1DCEE] rounded-4xl shadow-lg overflow-hidden relative z-20">
         {/* Top Inputs */}
         <div className="flex flex-col lg:flex-row md:flex-row gap-4 bg-white lg:py-6 lg:px-8 md:py-6 md:px-8 border border-primary-neutral-600 rounded-2xl">
             {/* BTC Input */}
             <div className="flex-1 px-6 md:px-0 lg:px-0 pb-6 md:pt-0 pt-6 md:px-0 lg:px-0">
-            <label htmlFor="btc" className="block text-gray-500 text-sm mb-1">
+            <label htmlFor="btc" className="block text-neutral-black-600 text-xl mb-1">
                 Bitcoin you’d like to stake
             </label>
-            <div className="flex items-center h-12 bg-tarnsparent  rounded-lg px-4">
-                <span className="text-yellow-500 text-2xl mr-2">₿</span>
+            <div className="flex items-center h-12 bg-tarnsparent  rounded-lg">
+            <Image
+                width={30}
+                height={42}
+                src={require('@/assets/images/bitcoin.svg')}
+                alt="Chart"
+                priority
+                className="mr-2"
+            />
                 <input
                 id="btc"
-                type="number"
+                type="text"
                 value={btc}
                 onChange={e => setBtc(e.target.value)}
-                className="w-full bg-transparent outline-none text-lg text-gray-900"
+                className="w-full bg-transparent outline-none text-3xl text-neutral-black-600"
                 />
             </div>
             </div>
 
             {/* Yield Dropdown */}
             <div className="relative flex-1 px-6 md:px-0 lg:px-0 py-6 md:py-0 lg:py-0 md:border-0 border-t border-primary-neutral-600">
-            <label className="block text-gray-500 text-sm mb-1">
+            <label className="block text-neutral-black-600 text-xl mb-1">
                 Select a yield rate
             </label>
             <button
                 onClick={() => setOpen(o => !o)}
-                className="w-full flex items-center justify-between h-12 px-4 bg-tarnsparent  rounded-lg hover:bg-gray-50"
+                className="w-full flex items-center justify-between h-12 bg-tarnsparent  rounded-lg hover:bg-gray-50"
             >
-                <span className="text-gray-900">{yieldRate} Annual yield</span>
+                <span className="text-neutral-black-600 text-3xl">{yieldRate} Annual yield</span>
                 <ChevronDown size={18} className="text-gray-500" />
             </button>
             {open && (
-                <ul className="absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                <ul className="absolute z-10 mt-2 text-3xl w-full bg-white border border-gray-200 rounded-lg shadow-lg">
                 {yieldOptions.map(opt => (
                     <li
                     key={opt}
