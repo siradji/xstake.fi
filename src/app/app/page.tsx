@@ -4,30 +4,31 @@ import {GetBtcCard} from "@/app/app/components/get-btc-card";
 import Image from "next/image";
 import {Button} from "@/app/components/ui/buttons";
 import FAQAccordion from "@/app/app/components/accordion";
+import {useState} from "react";
 
+export type AppView = 'stake' | 'swap'
 const AppPage = () => {
+    const [view, setView] = useState<AppView>('stake');
     return (
         <div className="relative">
-            {/* Background images with proper z-index */}
             <div
                 className="absolute -top-[450px] left-0 w-1/2 h-full bg-[url('/app-staking-bg-image.svg')] bg-no-repeat bg-contain bg-left z-[-1]"></div>
 
             <div
                 className="absolute top-0 -right-[100px] w-1/2 h-full bg-[url('/app-staking-bg-image-left.svg')] bg-no-repeat bg-contain bg-right z-[-1]"></div>
 
-            {/* Main content with higher z-index */}
             <div className="mx-auto relative z-10 max-w-max py-[62px]">
                 <GetBtcCard>
                     <div className="flex flex-col">
                         <div className="flex flex-row border-b-[1px] border-[#DDDDDD]">
                             <button
                                 className="p-lg text-subtitle gap-sm bg-transparent border-b-2 border-purple-500 pb-4 px-6"
-                                onClick={() => undefined}>
+                                onClick={() => setView('stake')}>
                                 Stake
                             </button>
                             <button
                                 className="p-lg gap-sm text-subtitle bg-transparent pb-4 px-6"
-                                onClick={() => undefined}>
+                                onClick={() => setView('swap')}>
                                 Swap
                             </button>
                         </div>

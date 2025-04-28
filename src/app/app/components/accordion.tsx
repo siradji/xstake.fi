@@ -19,7 +19,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, content, isOpen, o
             </button>
 
             {isOpen && (
-                <div className="p-lg leading-[130%] text-color-neutral-black-300">
+                <div className="p-lg leading-[130%] text-neutral-black-300 text-[13px]">
                     {content}
                 </div>
             )}
