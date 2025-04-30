@@ -2,8 +2,13 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, ChevronDown, Search } from 'lucide-react';
+import { ArrowDown, ArrowRight, ChevronDown, Search } from 'lucide-react';
 import { Button } from '../components/ui/buttons';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import 'react-horizontal-scrolling-menu/dist/styles.css';
+import FilterSection from '../components/ui/articles-filter';
+import { CtaSection } from '../app/components/cta-section';
+import { ArticlesCta } from '../app/components/articles-cta';
 
 // Sample data
 const categories = [
@@ -20,11 +25,17 @@ const articles = Array.from({ length: 9 }).map((_, i) => ({
   date: '2024-10-28',
   title: 'xBTC now integrated with DeFi Protocol XYZ for enhanced yield.',
   image: '@/assets/images/blog-image.svg', // placeholder path
+  category: "All Posts"
 }));
 
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState('All Posts');
   const [currentPage, setCurrentPage] = useState(1);
+
+  const filteredArticles =
+  activeCategory === "All"
+    ? articles
+    : articles.filter((a) => a.category === activeCategory);
 
   const handleCategoryClick = (cat: string) => {
     setActiveCategory(cat);
@@ -34,22 +45,31 @@ export default function BlogPage() {
   const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
-    <div className="w-full ">
+    <div className="w-full relative">
+      <div className="absolute left-[70%] hidden lg:block top-[20%]  pointer-events-none">
+          <Image
+            src={require("@/assets/images/articles-masthead-right.svg")}
+            alt="decorative chain"
+            width={756}
+            height={610}
+            className='w-full'
+          />
+        </div>
       {/* Hero Section */}
-     <div className="relative lg:px-28 md:px-16 px-md">
-        <div className="absolute left-0 hidden lg:block -bottom-40 z-10 pointer-events-none">
+     <div className="relative lg:px-[212px] md:px-16 px-md">
+        <div className="absolute right-[70%] hidden lg:block top-0 z-10 pointer-events-none">
           <Image
             src={require("@/assets/images/masthead-blog-grad.svg")}
             alt="decorative chain"
             width={756}
             height={610}
-            className=''
+            className='w-full'
           />
         </div>
      <section className="relative overflow-hidden py-16">
         <div className="flex flex-col lg:flex-row items-center relative z-20 justify-between gap-8">
           {/* Text block */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 w-full">
             <h2 className="text-3xl lg:text-4xl font-semibold text-gray-900">
               Our Blog
             </h2>
@@ -58,13 +78,13 @@ export default function BlogPage() {
             </p>
             <Button onClick={() => null} className="mt-4 bg-black text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-gray-800">
               Read More
-n              <ChevronDown size={16} />
+n              <ArrowDown size={16} />
             </Button>
           </div>
           {/* Featured card */}
           <div className="relative w-full lg:w-1/2">
-            <div className="bg-primary-cool-50 rounded-4xl p-6 shadow-lg overflow-hidden">
-              <div className="relative">
+            <div className="bg-primary-cool-50 lg:w-fit w-full rounded-4xl p-6 shadow-lg overflow-hidden">
+              <div className="relative w-full">
                 <Image
                   src={require("@/assets/images/blog-image.svg")}
                   alt={articles[0].title}
@@ -104,32 +124,18 @@ n              <ChevronDown size={16} />
      </div>
 
       {/* Filters */}
-      <div className="container mx-auto px-6 lg:px-12 mt-8">
-        <div className="flex flex-wrap gap-3 items-center">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleCategoryClick(cat)}
-              className={
-                'px-4 py-2 rounded-full border ' +
-                (cat === activeCategory
-                  ? 'bg-black text-white border-black'
-                  : 'bg-white text-gray-700 border-gray-300')
-              }
-            >
-              {cat}
-            </button>
-          ))}
-          <button onClick={() => null} className="ml-auto px-4 py-2 rounded-full border border-gray-300 flex items-center gap-2">
-            <Search size={16} /> Search
-          </button>
-        </div>
-      </div>
+      <FilterSection
+        categories={categories}
+        activeCategory={activeCategory}
+        handleCategoryClick={handleCategoryClick}
+      />
+
+
 
       {/* Articles grid */}
-      <div className="container mx-auto px-6 lg:px-12 mt-6">
+      <div className="mx-auto lg:px-[212px] md:px-16 px-md mt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articles.map((art) => (
+          {filteredArticles.map((art) => (
             <div
               key={art.id}
               className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
@@ -164,16 +170,16 @@ n              <ChevronDown size={16} />
       </div>
 
       {/* Pagination */}
-      <div className="container mx-auto px-6 lg:px-12 my-12 flex justify-center items-center gap-4">
+      <div className="container mx-auto px-6 lg:px-12 my-12 justify-center items-center hidden md:flex">
         {pages.slice(0, 10).map((p) => (
           <button
             key={p}
             onClick={() => setCurrentPage(p)}
             className={
-              'px-3 py-1 rounded ' +
+              'flex w-6 h-6 rounded-lg text-neutral-black-300 justify-center items-center text-sm' +
               (p === currentPage
-                ? 'bg-indigo-500 text-white'
-                : 'bg-gray-100 text-gray-700')
+                ? 'bg-primary-cool-200'
+                : 'bg-transparent')
             }
           >
             {p}
@@ -181,18 +187,10 @@ n              <ChevronDown size={16} />
         ))}
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-200 py-6 px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between">
-        <div className="flex items-center gap-2 text-gray-700">
-          <Image src="/images/logo.svg" alt="XSTAKE" width={24} height={24} />
-          <span className="text-sm">XSTAKE</span>
-        </div>
-        <div className="flex gap-6 mt-4 lg:mt-0">
-          <a href="#" className="text-sm text-gray-500 hover:text-gray-900">Terms of Use</a>
-          <a href="#" className="text-sm text-gray-500 hover:text-gray-900">Privacy Notice</a>
-          <a href="#" className="text-sm text-gray-500 hover:text-gray-900">Docs</a>
-        </div>
-      </footer>
+      <div className="my-4xl lg:my-6xl md:my-5xl">
+        <ArticlesCta />
+      </div>
+      
     </div>
   );
 }
