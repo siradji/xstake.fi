@@ -103,12 +103,12 @@ export default function Masthead() {
         {/* Left Column */}
         <div className="w-full lg:w-1/2 text-left relative z-20">
             
-          <h1 className="text-4xl leading-[120%] md:text-6xl lg:text-7xl text-neutral-black-600 mb-4">
+          <h1 className="leading-[120%] text-6xl lg:text-7xl text-neutral-black-600 mb-4">
             Stake Your Bitcoin,
-            <p className="flex items-center lg:justify-center">
-            <p className="rounded-2xl text-xl md:text-2xl inline-flex text-neutral-black-300 flex bg-linear-to-br from-white to-[#E1DCEE] md:py-4 md:px-6 py-2.5 px-2">
+            <span className="md:flex hidden items-center lg:justify-center">
+            <p className="rounded-2xl text-2xl inline-flex text-neutral-black-300 flex bg-linear-to-br from-white to-[#E1DCEE] mr-4 md:py-4 md:px-6 py-2.5 px-2">
                 +5k users
-                <br />
+                
                 <span className="ml-2">
                     <Image
                         width={32}
@@ -121,7 +121,22 @@ export default function Masthead() {
                     </span>
                 </p> 
                 Unlock DeFi
-            </p>
+            </span>
+            <p className="rounded-2xl text-2xl md:hidden inline-flex text-neutral-black-300 flex bg-linear-to-br from-white to-[#E1DCEE] mr-4 md:py-4 md:px-6 py-2.5 px-2">
+                +5k users
+                
+                <span className="ml-2">
+                    <Image
+                        width={32}
+                        height={32}
+                        src={require('@/assets/images/profile-icon.svg')}
+                        alt="Profile Icon"
+                        priority
+                        className=""
+                    />
+                    </span>
+                </p> 
+                <span className="md:hidden block">Unlock DeFi</span>
           </h1>
           <p className="text-base md:text-lg text-neutral-black-300 mb-6">
             Earn yield on your Bitcoin through liquid staking
@@ -168,7 +183,7 @@ export default function Masthead() {
                 src={require('@/assets/images/card-image.svg')}
                 alt="Decor"
                 priority
-                className="lg:w-fit lg:block hidden w-[214px]"
+                className="lg:block hidden  ml-auto"
             />
             <Image
                 width={214}
@@ -202,7 +217,7 @@ export default function Masthead() {
         src={require('@/assets/images/knot-md.svg')}
         alt="Decor"
         priority
-        className="hidden lg:hidden md:block absolute right-0 md:top-[45%] w-[150px] opacity-80"
+        className="hidden lg:hidden md:block absolute z-20 right-0 md:top-[45%] w-[150px] opacity-80"
     />
     </section>
   );

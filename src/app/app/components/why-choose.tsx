@@ -49,7 +49,7 @@ export const WhyChoose: React.FC = () => {
 
       <div className="w-full relative z-50 containe lg:px-28 md:px-16 px-md flex justify-between flex-col lg:flex-row items-start gap-12">
         {/* Heading */}
-        <h2 className="text-white font-semibold leading-tight text-4xl md:text-6xl lg:text-7xl lg:w-1/3">
+        <h2 className="text-white font-semibold leading-tight text-4xl md:text-6xl lg:text-7xl lg:w-[528px]">
           Why Choose Us for Bitcoin Staking?
         </h2>
 
