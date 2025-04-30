@@ -1,47 +1,44 @@
 import React, { useState } from 'react';
-
+import Image from 'next/image'
+import clsx from 'clsx'
+import {ChevronDown} from "lucide-react";
 // Text Input Component
-export const TextInput = ({ label, placeholder, helperText, state = 'default' }: any) => {
+export const TextInput = ({ rightComponent, placeholder, helperText, state = 'default' }: any) => {
     const [value, setValue] = useState('');
     const [focused, setFocused] = useState(false);
 
     const getInputClass = () => {
-
         if (state === 'error') return 'border border-red-300 rounded-md p-2 w-full';
         if (state === 'disabled') return 'border border-gray-200 bg-gray-100 rounded-md p-2 w-full text-gray-400';
-        if (focused || value) return 'border border-blue-300 rounded-md p-2 w-full';
+        if (focused || value) return 'border-none focus:outline-none rounded-md p-2 w-full';
         return 'border border-gray-300 rounded-md p-2 w-full';
     };
 
-    const getHelperTextClass = () => {
-        return state === 'error' ? 'text-red-500 text-xs mt-1' : 'text-gray-500 text-xs mt-1';
-    };
+    // const getHelperTextClass = () => {
+    //     return state === 'error' ? 'text-red-500 text-xs mt-1' : 'text-gray-500 text-xs mt-1';
+    // };
 
     return (
-        <div className="mb-4">
-            <label className="block font-light text-body1 text-neutral-black-600 mb-md">{label}</label>
-            <div className="relative">
-                <input
-                    type="text"
-                    placeholder={placeholder}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    onFocus={() => setFocused(true)}
-                    onBlur={() => setFocused(false)}
-                    disabled={state === 'disabled'}
-                    className={`${getInputClass()} rounded-xl p-lg text-body1 bg-primary-neutral-300`}
-                />
-                {value && (
-                    <button
-                        className="absolute right-2 top-2 text-gray-400"
-                        onClick={() => setValue('')}
-                        type="button"
-                    >
-                        ×
-                    </button>
-                )}
+        <div className="mb-2">
+            {/*<label className="block font-light text-body1 text-neutral-black-600 mb-md">{label}</label>*/}
+            <div className={clsx("relative rounded-xl p-lg text-body1 bg-primary-neutral-300", {
+                'border-[1px] border-[#6147EC]': focused,
+                'border-[1px] border-[#DDDDDD]': !focused,
+            })}>
+               <div className="flex flex-row">
+                   {rightComponent}
+                   <input
+                       type="text"
+                       placeholder={placeholder}
+                       value={value}
+                       onChange={(e) => setValue(e.target.value)}
+                       onFocus={() => setFocused(true)}
+                       onBlur={() => setFocused(false)}
+                       disabled={state === 'disabled'}
+                       className={`${getInputClass()} border-none text-right `}
+                   />
+               </div>
             </div>
-            {helperText && <p className={getHelperTextClass()}>{helperText}</p>}
         </div>
     );
 };
@@ -338,3 +335,29 @@ export const InputsShowcase = () => {
     );
 };
 
+
+export function TokenSelector (): React.ReactNode {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const tokens: Array<{name: string, balance: number, logo:string}> = require('@/mocks/tokens.json')
+    const firstToken = tokens[0]
+    return (
+        <div className="flex flex-col w-full gap-sm">
+            <div className="flex text-[#2D3239] font-[400] items-center  flex-row gap-sm items-center">
+                <Image
+                     src={require('@/assets/images/tokens/bitcoin-coin-icon.svg')}
+                     alt={firstToken.name}
+                     width={24}
+                     height={24}
+                />
+                <p>{firstToken.name}</p>
+                <div className="w-lg h-lg">
+                    <ChevronDown  />
+                </div>
+            </div>
+            <div className=" font-[500]">
+                <span className="text-[13px] text-[#75797E]">Balance: </span>
+                {`${firstToken.balance} ${firstToken.name}`}
+            </div>
+        </div>
+    )
+}
