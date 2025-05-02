@@ -46,7 +46,7 @@ export default function BlogPage() {
 
   return (
     <div className="w-full relative">
-      <div className="absolute left-[70%] hidden lg:block top-[20%]  pointer-events-none">
+      <div className="absolute left-[70%] hidden lg:block top-[10%]  pointer-events-none">
           <Image
             src={require("@/assets/images/articles-masthead-right.svg")}
             alt="decorative chain"
@@ -56,8 +56,8 @@ export default function BlogPage() {
           />
         </div>
       {/* Hero Section */}
-     <div className="relative lg:px-[212px] md:px-16 px-md">
-        <div className="absolute right-[70%] hidden lg:block top-0 z-10 pointer-events-none">
+     <div className="relative">
+        <div className="absolute lg:right-[70%] md:left-0 hidden md:block top-[40%] lg:top-0 z-10 pointer-events-none">
           <Image
             src={require("@/assets/images/masthead-blog-grad.svg")}
             alt="decorative chain"
@@ -66,7 +66,7 @@ export default function BlogPage() {
             className='w-full'
           />
         </div>
-     <section className="relative overflow-hidden py-16">
+     <section className="relative overflow-hidden py-16 lg:px-[212px] md:px-16 px-md">
         <div className="flex flex-col lg:flex-row items-center relative z-20 justify-between gap-8">
           {/* Text block */}
           <div className="lg:w-1/2 w-full">
@@ -78,7 +78,7 @@ export default function BlogPage() {
             </p>
             <Button onClick={() => null} className="mt-4 bg-black text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-gray-800">
               Read More
-n              <ArrowDown size={16} />
+              <ArrowDown size={16} />
             </Button>
           </div>
           {/* Featured card */}
@@ -93,7 +93,7 @@ n              <ArrowDown size={16} />
                   className='w-full rounded-t-2xl'
                 />
               </div>
-              <div className="p-6 bg-[#FEFEFE] rounded-b-2xl">
+              <div className="p-6 bg-[#FEFEFE] rounded-b-2xl md:bg-[url(@/assets/images/card-gradient.svg)] bg-no-repeat bg-right">
                 <p className="text-xs text-neutral-black-300">{articles[0].date}</p>
                 <h3 className="my-4 text-lg font-medium text-gray-900">
                   {articles[0].title}
@@ -187,9 +187,7 @@ n              <ArrowDown size={16} />
         ))}
       </div>
 
-      <div className="my-4xl lg:my-6xl md:my-5xl">
-        <ArticlesCta />
-      </div>
+     
       
     </div>
   );

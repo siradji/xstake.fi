@@ -72,7 +72,7 @@ const FilterSection = ({ categories, activeCategory, handleCategoryClick }: any)
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent outline-none text-neutral-dark-blue-600 placeholder:text-neutral-dark-blue-400"
+                className="w-full focus: bg-transparent outline-none text-neutral-dark-blue-600 placeholder:text-neutral-dark-blue-400"
                 placeholder="Search articles..."
               />
               <button onClick={() => setSearchMode(false)} className="text-neutral-dark-blue-600">

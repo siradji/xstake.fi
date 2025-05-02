@@ -22,14 +22,14 @@ export const CtaSection: React.FC = () => {
                       height={610}
                     />
                   </div>
-                  <div style={{ top: "20%", left: "" }} className="absolute hidden lg:block  z-100  pointer-events-none">
+                  {/* <div style={{ top: "-30%", left: "-10%" }} className="absolute hidden lg:block  z-100  pointer-events-none">
                     <Image
                       src={require("@/assets/images/cta-vector-2.svg")}
                       alt="decorative chain"
                       width={756}
                       height={610}
                     />
-                  </div>
+                  </div> */}
             <div className="lg:px-28 md:px-16 px-md -mb-2xl relative z-50">
                 <div className="bg-neutral-dark-blue-500 shadow-[0px_4px_10.7px_0px_#0000001A] rounded-4xl lg:p-4xl px-md pt-xl lg:bg-[url('@/assets/images/xstake-stacked.svg')] bg-no-repeat bg-right top-3.5 flex item-center justify-center lg:block! flex-col text-center lg:text-left">
                     
