@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import NextTopLoader from 'nextjs-toploader';
 import "./globals.css";
-import {Header} from "@/app/components/layout/header";
 
 const geistSans = Geist({
   // variable: "--font-geist-sans",
@@ -28,6 +28,11 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
+      <NextTopLoader
+          color="linear-gradient(to right, #ffffff, #E1DCEE)" // Optional: Initial gradient (CSS-based)
+          height={6} // Customize height
+          showSpinner={false} // Optional: Hide spinner
+      />
       {/*<Header />*/}
         {children}
       </body>

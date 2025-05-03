@@ -13,7 +13,7 @@ export const AppHeader = () => {
     };
 
     return (
-        <header className="sticky top-0 z-100 py-[calc(--spacing(8)+2px)] flex items-center justify-between bg-white lg:px-28 md:px-16 px-md  shadow-sm">
+        <header className="sticky top-0 z-50 py-4 flex items-center justify-between bg-white px-[16px] md:px-[108px]  shadow-sm">
             <div className="flex items-center">
                 <Link href="/">
                     <Image
@@ -42,7 +42,7 @@ export const AppHeader = () => {
                 <ul className="flex flex-row items-center space-x-8 mr-8">
                     <li>
                         <Link
-                            href="/app/swap"
+                            href="/app"
                             className="text-gray-600 hover:text-black transition duration-200"
                         >
                             Get XBTC

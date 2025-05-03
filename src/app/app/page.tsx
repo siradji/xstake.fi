@@ -13,7 +13,7 @@ export type AppView = 'stake' | 'swap'
 
 const AppPage = () => {
     const [view, setView] = useState<AppView>('stake');
-    const [connectionModalOpenState, setConnectionModalOpenState] = useState(true);
+    const [connectionModalOpenState, setConnectionModalOpenState] = useState(false);
     return (
         <div className="relative">
             <div
@@ -63,7 +63,7 @@ const AppPage = () => {
                                         The first step on your staking journey is to decide where you want to receive your
                                         LBTC. Connect the account where you will mint LBTC.
                                     </p>
-                                    <Button onClick={() => undefined} className="mt-md">
+                                    <Button onClick={() => setConnectionModalOpenState(true)} className="mt-md">
                                         Connect Wallet
                                     </Button>
                                 </div>
@@ -87,7 +87,7 @@ const AppPage = () => {
                                         rightComponent={<TokenSelector/>}
                                     />
                                 </div>
-                                <Button onClick={() => undefined} className="mt-md">
+                                <Button onClick={() => setConnectionModalOpenState(true)} className="mt-md">
                                     Connect Wallet
                                 </Button>
                             </div>

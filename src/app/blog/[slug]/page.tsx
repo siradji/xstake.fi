@@ -1,8 +1,8 @@
 "use client"
 
 import Image from 'next/image';
-import { ArrowLeft, ArrowRight, ChevronRight } from 'lucide-react';
-import { Button } from '../components/ui/buttons';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Button } from '../../components/ui/buttons';
 
 export default function ArticlePage() {
   return (

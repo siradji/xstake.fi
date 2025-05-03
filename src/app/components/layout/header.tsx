@@ -5,10 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/buttons";
 import { Menu, X } from "lucide-react";
-
+import {useRouter} from 'nextjs-toploader/app'
 export const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+    const router = useRouter();
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
@@ -61,7 +61,7 @@ export const Header = () => {
                     </li>
                 </ul>
                 <Button
-                    onClick={() => window.location.href = '/app'}
+                    onClick={() => router.push('/app')}
                     size="md"
                     variant="primary"
                 >

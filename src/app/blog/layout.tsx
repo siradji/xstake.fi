@@ -1,14 +1,13 @@
-import {AppHeader} from "@/app/app/components/app-header";
 import {PropsWithChildren} from "react";
-import { AppFooter } from "../app/components/app-footer";
 import { ArticleFooter } from "../components/layout/articles-footer";
+import {Header} from "@/app/components/layout/header";
 
 export default function Layout (props: PropsWithChildren<any>): React.ReactNode {
     return (
-        <div>
-            <AppHeader />
+        <>
+            <Header />
             {props.children}
             <ArticleFooter />
-        </div>
+        </>
     )
 }

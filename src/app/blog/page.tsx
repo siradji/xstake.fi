@@ -2,13 +2,11 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowDown, ArrowRight, ChevronDown, Search } from 'lucide-react';
+import { ArrowDown, ArrowRight} from 'lucide-react';
 import { Button } from '../components/ui/buttons';
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import FilterSection from '../components/ui/articles-filter';
-import { CtaSection } from '../app/components/cta-section';
-import { ArticlesCta } from '../app/components/articles-cta';
+import Link from "next/link";
 
 // Sample data
 const categories = [
@@ -136,59 +134,60 @@ export default function BlogPage() {
       <div className="mx-auto lg:px-[212px] md:px-16 px-md mt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredArticles.map((art) => (
-            <div
-              key={art.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
-            >
-              <div className="relative">
-                <Image
-                  src={require("@/assets/images/blog-image.svg")}
-                  alt={art.title}
-                  width={317}
-                  height={226}
-                  className='w-full rounded-t-2xl'
-                />
-              </div>
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <p className="text-xs text-neutral-black-300">{art.date}</p>
-                  <h4 className="my-4 text-sm font-medium text-gray-900">
-                    {art.title}
-                  </h4>
-                </div>
-                <div
-                  onClick={() => null} 
-                  className="p-0 text-sm text-neutral-dark-blue-600 flex items-center gap-1 cursor-pointer"
+              <Link href={`/blog/${art.id}`} as={`/blog/${art.id}`} key={art.id} passHref>
+                  <div
+                      key={art.id}
+                      className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
+                  >
+                      <div className="relative">
+                          <Image
+                              src={require("@/assets/images/blog-image.svg")}
+                              alt={art.title}
+                              width={317}
+                              height={226}
+                              className='w-full rounded-t-2xl'
+                          />
+                      </div>
+                      <div className="p-4 flex-1 flex flex-col justify-between">
+                          <div>
+                              <p className="text-xs text-neutral-black-300">{art.date}</p>
+                              <h4 className="my-4 text-sm font-medium text-gray-900">
+                                  {art.title}
+                              </h4>
+                          </div>
+                          <div
+                              onClick={() => null}
+                              className="p-0 text-sm text-neutral-dark-blue-600 flex items-center gap-1 cursor-pointer"
 
-                >
-                  Read More <ArrowRight size={14} />
-                </div>
-              </div>
-            </div>
+                          >
+                              Read More <ArrowRight size={14}/>
+                          </div>
+                      </div>
+                  </div>
+              </Link>
           ))}
         </div>
       </div>
 
-      {/* Pagination */}
-      <div className="container mx-auto px-6 lg:px-12 my-12 justify-center items-center hidden md:flex">
-        {pages.slice(0, 10).map((p) => (
-          <button
-            key={p}
-            onClick={() => setCurrentPage(p)}
-            className={
-              'flex w-6 h-6 rounded-lg text-neutral-black-300 justify-center items-center text-sm' +
-              (p === currentPage
-                ? 'bg-primary-cool-200'
-                : 'bg-transparent')
-            }
-          >
-            {p}
-          </button>
-        ))}
-      </div>
+        {/* Pagination */}
+        <div className="container mx-auto px-6 lg:px-12 my-12 justify-center items-center hidden md:flex">
+            {pages.slice(0, 10).map((p) => (
+                <button
+                    key={p}
+                    onClick={() => setCurrentPage(p)}
+                    className={
+                        'flex w-6 h-6 rounded-lg text-neutral-black-300 justify-center items-center text-sm' +
+                        (p === currentPage
+                            ? 'bg-primary-cool-200'
+                            : 'bg-transparent')
+                    }
+                >
+                    {p}
+                </button>
+            ))}
+        </div>
 
-     
-      
+
     </div>
   );
 }

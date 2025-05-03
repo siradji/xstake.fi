@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Metamask",
+    "icon": "@/assets/images/wallets/metamask.svg"
+  },
+  {
+    "name": "Wallet Connect",
+    "icon": "@/assets/images/wallets/wallet-connect.svg"
+
+  },
+  {
+    "name": "Binance Web3 Wallet",
+    "icon": "@/assets/images/wallets/binance.svg"
+  }
+]
