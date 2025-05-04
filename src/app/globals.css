@@ -184,3 +184,18 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;             /* Chrome/Safari */
 }
+
+/* Can go in a global CSS file or a module */
+.custom-bullet {
+  display: inline-block;
+  width: 64px !important; /* w-8 = 32px */
+  height: 0.25rem !important; /* h-1 = 4px */
+  border-radius: 0 !important; /* rounded-full */
+  background-color: #d1d5db; /* bg-gray-300 */
+  transition: background-color 0.3s;
+  margin: 0 4px;
+}
+
+.swiper-pagination-bullet-active.custom-bullet {
+  background-color: #6366f1; /* bg-indigo-500 */
+}
