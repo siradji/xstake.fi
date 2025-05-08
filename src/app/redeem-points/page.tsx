@@ -39,7 +39,7 @@ export default function RedeemDemoPage() {
           </DialogDescription>
         </DialogHeader>
         
-        <div className={`w-fit p-px bg-gradient-to-b from-[#EEF1F4] to-[#8D88AA] bg-clip-border rounded-3xl`}>
+        <div className={`w-full p-px bg-gradient-to-b from-[#EEF1F4] to-[#8D88AA] bg-clip-border rounded-3xl`}>
             <div className="rounded-3xl w-full p-6 md:px-6 px-3 flex flex-col text-center  justify-center items-center bg-white">
             {edit ? (
               <div className="flex flex-col md:flex-row items-center justify-center">

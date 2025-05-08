@@ -46,9 +46,9 @@ export default function HowItWorks() {
 
             <div className="lg:flex lg:flex-row flex-col gap-8">
               {/* Card 1 */}
-              <div className="relative bg-gradient-to-b from-white to-[#E1DCEE] rounded-4xl shadow-lg p-8 lg:w-1/3">
+              <div className="relative bg-gradient-to-b from-white to-[#E1DCEE] rounded-4xl shadow-lg p-6 md:p-8 lg:w-1/3">
               <div className="flex justify-between">
-                <div className="bg-white h-5xl w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center">
+                <div className="bg-white h-[84px] w-[84px] md:h-5xl md:w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center">
                   <Image
                     width={48}
                     height={48}
@@ -67,9 +67,9 @@ export default function HowItWorks() {
                 </p>
               </div>
 
-              <div className="relative bg-gradient-to-b lg:my-0 my-8 from-white to-[#E1DCEE] rounded-4xl shadow-lg p-8 lg:w-1/3">
+              <div className="relative bg-gradient-to-b lg:my-0 my-8 from-white to-[#E1DCEE] rounded-4xl shadow-lg p-6 md:p-8 lg:w-1/3">
               <div className="flex justify-between">
-                <div className="bg-white h-5xl w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center">
+                <div className="bg-white h-[84px] w-[84px] md:h-5xl md:w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center">
                   <Image
                     width={48}
                     height={48}
@@ -89,12 +89,12 @@ export default function HowItWorks() {
               </div>
 
               {/* Card 3 */}
-              <div className="relative bg-gradient-to-b from-white to-[#E1DCEE] rounded-4xl shadow-lg p-8 lg:w-1/3">
+              <div className="relative bg-gradient-to-b from-white to-[#E1DCEE] rounded-4xl shadow-lg p-6 md:p-8 lg:w-1/3">
                 <div className="flex justify-between">
                   <div className=" flex -space-x-5">
                     
                     <div
-                      className="bg-white h-5xl w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center shadow-md z-20"
+                      className="bg-white h-[84px] w-[84px] md:h-5xl md:w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center shadow-md z-20"
                       style={{ marginRight: -20 }}
                     >
                       
@@ -107,7 +107,7 @@ export default function HowItWorks() {
                       />
                     </div>
                     <div
-                      className="bg-white h-5xl w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center shadow-md z-10"
+                      className="bg-white h-[84px] w-[84px] md:h-5xl md:w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center shadow-md z-10"
                       style={{ marginLeft: 0 }}
                     >
 
@@ -120,7 +120,7 @@ export default function HowItWorks() {
                       />
                     </div>
                     <div
-                      className="bg-white h-5xl w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center shadow-md z-0"
+                      className="bg-white h-[84px] w-[84px] md:h-5xl md:w-5xl rounded-full border border-primary-neutral-600 flex items-center justify-center shadow-md z-0"
                       style={{ marginLeft: 0 }}
                     >
                       <Image
