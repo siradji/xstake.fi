@@ -170,6 +170,22 @@ export default function Masthead() {
       </div>
     
       <div className="flex flex-row mt-8 md:mt-0 px-4 md:px-0 gap-4 mb-12 items-end relative z-10">
+            <Image
+              width={263}
+              height={287}
+              src={require('@/assets/images/Subtract.svg')}
+              alt="Profile Icon"
+              priority
+              className="hidden lg:block"
+            />
+             <Image
+              width={26}
+              height={187}
+              src={require('@/assets/images/Subtract(2).svg')}
+              alt="Profile Icon"
+              priority
+              className="md:block lg:hidden hidden"
+            />
             <Card className="flex-1 px-3 py-3.5 w-[163px] h-[104px] md:p-6 lg:w-[408px] md:w-[280px] lg:h-[265px] flex items-start justify-center flex-col md:h-[182px] bg-gradient-to-br from-white to-[#F0DED7]">
               <p className="lg:text-7xl text-3xl md:text-5xl text-neutral-black-600 mb-2">8%</p>
               <p className="text-neutral-black-300 text-sm md:text-base lg:text-2xl">Get yield on your BTC with competitive rates</p>
@@ -194,6 +210,22 @@ export default function Masthead() {
                 className="lg:w-fit hidden md:block ml-auto lg:hidden"
             />
             </Card>
+            <Image
+              width={289}
+              height={280}
+              src={require('@/assets/images/Subtract(1).svg')}
+              alt="Profile Icon"
+              priority
+              className="hidden lg:block"
+            />
+             <Image
+              width={108}
+              height={200}
+              src={require('@/assets/images/Subtract(3).svg')}
+              alt="Profile Icon"
+              priority
+              className="md:block lg:hidden hidden"
+            />
           </div>
 
           <div className="w-full md:hidden block lg:w-1/2 relative lg:mb-0 md:mb-[140px]">
