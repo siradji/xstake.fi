@@ -7,6 +7,7 @@ import Link from "next/link";
 import xbtc from "@/assets/images/XBTC-icon.svg";
 import avatar from '@/assets/images/avatar.svg';
 import { useEffect, useRef, useState } from 'react';
+import DashboardHeader from '../components/dashboard/header';
 
 const DashboardPage = () => {
   const scrollRef = useRef < HTMLDivElement > (null);
@@ -146,6 +147,7 @@ const DashboardPage = () => {
 
         </div>
       </div>
+      <DashboardHeader />
       <div className="w-full max-w-[1016px] rounded-3xl bg-white shadow-md ">
         <h2 className="text-h5 leading-h5 font-medium text-neutral-black-600 p-4">
           Staking in Progress
