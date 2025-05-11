@@ -21,7 +21,7 @@ const FilterSection = ({
   const [selectedFilter, setSelectedFilter] = useState('All')
 
   return (
-    <div className="container lg:px-[212px] md:px-4xl px-md mt-8">
+    <div className="lg:px-[212px] md:px-4xl px-md mt-8">
       <div className="relative overflow-x-auto scrollbar-hide hidden md:block w-full">
         {!searchMode ? (
           <ScrollMenu wrapperClassName="no-scrollbar overflow-x-auto w-full">

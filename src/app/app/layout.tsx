@@ -5,7 +5,7 @@ import {AppFooter} from "@/app/app/components/app-footer";
 export default function Layout (props: PropsWithChildren<any>): React.ReactNode {
     return (
         <div>
-            <AppHeader />
+            {/* <AppHeader /> */}
             {props.children}
             <AppFooter />
         </div>

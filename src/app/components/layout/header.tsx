@@ -1,20 +1,37 @@
-"use client"
+"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/buttons";
 import { Menu, X } from "lucide-react";
-import {useRouter} from 'nextjs-toploader/app'
+import { useRouter } from 'nextjs-toploader/app';
+
 export const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const router = useRouter();
+
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+
+        handleScroll(); // Run once on mount
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className="sticky top-0 z-50 py-4 flex items-center justify-between bg-white px-[16px] md:px-[108px]  shadow-sm">
+        <header
+            className={`sticky top-0 z-50 py-4 flex items-center justify-between px-[16px] md:px-[108px] transition-all duration-300 ${
+                scrolled ? "bg-white shadow-sm" : "bg-transparent shadow-none"
+            }`}
+        >
             <div className="flex items-center">
                 <Link href="/">
                     <Image

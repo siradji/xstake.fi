@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
-import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css'
 import Image from 'next/image';
 import { ArrowDown, ArrowRight, ChevronDown, Search } from 'lucide-react';
 import { Button } from '../components/ui/buttons';
@@ -104,7 +104,7 @@ export default function BlogPage() {
               }}
               spaceBetween={24}
               slidesPerView={1}
-              className="bg-primary-cool-50 lg:w-fit w-full rounded-4xl p-6 shadow-lg overflow-hidden"
+              className="bg-primary-cool-50 w-full rounded-4xl p-6 shadow-lg overflow-hidden"
             >
               {articles.slice(0, 4).map((article, index) => (
                 <SwiperSlide key={index}>
@@ -170,8 +170,8 @@ export default function BlogPage() {
             height={60}
             className='block md:hidden'
           />
-          <h3 className="font-medium text-3xl text-neutral-black-600 flex">Sorry, no results were found for your request</h3>
-          <p className="text-neutral-black-300">Please try using different keywords:</p>
+          <h3 className="font-medium text-3xl mt-4 text-neutral-black-600 flex">Sorry, no results were found for your request</h3>
+          <p className="text-neutral-black-300 mt-2 mb-4">Please try using different keywords:</p>
           <div className="flex flex-wrap! w-full justify-center items-center">
           {categories.map((cat) => (
               <div key={cat} style={{ margin: '0 8px' }}>
