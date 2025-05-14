@@ -78,7 +78,7 @@ export default function BlogPage() {
             className='w-full'
           />
         </div>
-     <section className="relative overflow-hidden py-16 lg:px-[212px] md:px-16 px-md">
+     <section className="relative overflow-hidden py-16 lg:px-[108px] px-md">
         <div className="flex flex-col lg:flex-row items-center relative z-20 justify-between gap-8">
           {/* Text block */}
           <div className="lg:w-1/2 w-full">
@@ -155,7 +155,7 @@ export default function BlogPage() {
 
       
       {filteredArticles.length == 0 ? (
-        <div className="flex justify-center flex-col items-center lg:px-[212px] text-center md:px-16 px-md md:p-8 py-10 lg:py-14">
+        <div className="flex justify-center flex-col items-center md:px-[108px] text-center px-md md:p-8 py-10 lg:py-14">
           <Image
             src={require("@/assets/images/folder.svg")}
             alt="Folder"
@@ -191,7 +191,7 @@ export default function BlogPage() {
           </div>
         </div>
       ) : (
-        <div className="mx-auto lg:px-[212px] md:px-16 px-md mt-6">
+        <div className="mx-auto lg:px-[108px] px-md mt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredArticles.map((art) => (
             <div

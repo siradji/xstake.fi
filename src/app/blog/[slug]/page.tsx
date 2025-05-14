@@ -1,12 +1,22 @@
 "use client"
 
-import Image from 'next/image';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '../../components/ui/buttons';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useRef } from 'react';
+import SwiperCore from "swiper"
+
+const articles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
 export default function ArticlePage() {
+  const swiperRef = useRef<SwiperCore>();
   return (
-    <div className="lg:px-[212px] md:px-16 px-md py-8 text-neutral-dark-blue-950">
+    <div className="lg:px-[108px] px-md py-8 text-neutral-dark-blue-950">
       {/* Back Button */}
       <button className="flex rounded-[100px] items-center text-sm px-4 py-3 text-neutral-dark-blue-600 border border-neutral-dark-blue-600 mb-4">
         <ArrowLeft className="w-4 h-4 mr-1" /> Back
@@ -80,44 +90,67 @@ export default function ArticlePage() {
       {/* See other updates */}
       <div className="relative mt-16">
         <h2 className="text-lg font-semibold mb-4">See other network updates</h2>
-        <div className="relative flex items-center overflow-x-auto gap-4 pb-2 no-scrollbar">
-          {[1, 2, 3].map((_, i) => (
-            <div
-                          key={i}
-                          className="bg-white lg:w-fit md:w-1/2 w-full rounded-2xl shadow-md overflow-hidden flex flex-col"
-                        >
-                          <div className="relative">
-                          <Image src={require("@/assets/images/blog-image.svg")} alt="Article" width={300} height={150} className="rounded-xl mb-2" />
-                          </div>
-                          <div className="p-4 flex-1 flex flex-col justify-between">
-                            <div>
-                              <p className="text-xs text-neutral-black-300">2024-10-28</p>
-                              <h4 className="my-4 text-sm font-medium text-gray-900">
-                              xBTC now integrated with DeFi Protocol XYZ for enhanced yield.
-                              </h4>
-                            </div>
-                            <div
-                              className="p-0 text-sm text-neutral-dark-blue-600 flex items-center gap-1 cursor-pointer"
-            
-                            >
-                              Read More <ArrowRight size={14} />
-                            </div>
-                          </div>
-                        </div>
-           
-          ))}
-          
-        </div>
-        <div className="w-full flex justify-center items-center">
-
-            <Button onClick={() => null} className="mt-4 bg-transparent border !border-neutral-dark-blue-600 px-6 py-2 rounded-full flex items-center gap-2 !text-neutral-dark-blue-600 hover:text-white!">
-              See All Updates
-            </Button>
-          </div>
-          <button className="absolute z-40 md:left-[97%] lg:left-[98%] left-[92%] top-1/2 p-2 bg-white backdrop-blur-md text-primary-blue-600 rounded-full shadow-md">
-            <ArrowRight size={20} />
-          </button>
+          {/* Custom Navigation Buttons */}
+      <div className="absolute top-1/2 -left-4 z-10 transform -translate-y-1/2">
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="bg-white shadow p-2 rounded-full"
+        >
+          <ArrowLeft size={20} />
+        </button>
       </div>
+      <div className="absolute top-1/2 -right-4 z-10 transform -translate-y-1/2">
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="bg-white shadow p-2 rounded-full"
+        >
+          <ArrowRight size={20} />
+        </button>
+      </div>
+
+      {/* Swiper Slider */}
+      <Swiper
+        modules={[Navigation]}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        spaceBetween={16}
+        breakpoints={{
+          1024: { slidesPerView: 3 },
+          768: { slidesPerView: 2 },
+          0: { slidesPerView: 1.1 }, // 👈 Shows 1 + partial next
+        }}
+        className="pl-4 pr-6 md:pl-0 md:pr-0" // 👈 Add left and right padding for proper peeking
+      >
+        {articles.map((_, i) => (
+          <SwiperSlide key={i}>
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col">
+              <div className="relative">
+                <Image
+                  src={require("@/assets/images/blog-image.svg")}
+                  alt="Article"
+                  width={300}
+                  height={150}
+                  className="rounded-xl mb-2 w-full object-cover"
+                />
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs text-neutral-black-300">2024-10-28</p>
+                  <h4 className="my-4 text-sm font-medium text-gray-900">
+                    xBTC now integrated with DeFi Protocol XYZ for enhanced yield.
+                  </h4>
+                </div>
+                <div className="p-0 text-sm text-neutral-dark-blue-600 flex items-center gap-1 cursor-pointer">
+                  Read More <ArrowRight size={14} />
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>    
+      </div>
+      
     </div>
   );
 }

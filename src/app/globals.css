@@ -318,3 +318,8 @@ body {
 .swiper-pagination-bullet-active.custom-bullet {
   background-color: #6366f1; /* bg-indigo-500 */
 }
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: none !important;
+}

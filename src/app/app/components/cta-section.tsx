@@ -6,7 +6,7 @@ import stackedIpad from "@/assets/images/stacked-ipad.svg";
 export const CtaSection: React.FC = () => {
     return (
         <div className="bg-transparent rounded-b-4xl relative z-50 w-full bg-[url('/assets/images/cta-vector-2.svg')] bg-no-repeat bg-cover">
-            <div style={{ top: "-15%", left: "-55%" }} className="absolute lg:hidden block -bottom-32 z-100  pointer-events-none">
+            <div className="absolute lg:hidden block md:top-[-15%] left-[-75%] top-[-10%] md:left-[-55%] z-100  pointer-events-none">
                     <Image
                       src={require("@/assets/images/cta-gradient.svg")}
                       alt="decorative chain"

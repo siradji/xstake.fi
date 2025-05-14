@@ -28,9 +28,9 @@ export const Header = () => {
 
     return (
         <header
-            className={`sticky top-0 z-50 py-4 flex items-center justify-between px-[16px] md:px-[108px] transition-all duration-300 ${
+            className={`sticky top-0 z-150 py-4 flex items-center justify-between px-[16px] md:px-[108px] transition-all duration-300 ${
                 scrolled ? "bg-white shadow-sm" : "bg-transparent shadow-none"
-            }`}
+            } ${mobileMenuOpen && !scrolled ? "bg-white!" : ""}`}
         >
             <div className="flex items-center">
                 <Link href="/">
